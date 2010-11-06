@@ -5,14 +5,14 @@ Easily generate a Rails 3 application with RSpec, Factory Girl, Haml, and
 jQuery in one line:
 
     % rails new my_app -J -T -m \
-    http://github.com/leshill/rails3-app/raw/master/app.rb
+    https://github.com/leshill/rails3-app/raw/master/app.rb
 
 ## Need Cucumber?
 
 Use this generator file instead:
 
     % rails new my_app -J -T -m \
-    http://github.com/leshill/rails3-app/raw/master/cuke.rb
+    https://github.com/leshill/rails3-app/raw/master/cuke.rb
 
 rvm
 ---
@@ -26,7 +26,7 @@ This also gives you the Factory Girl and Haml Rails 3 generators &mdash; the
 generators for RSpec are in the RSpec gem &mdash; so that your factories and
 views are generated using Factory Girl and Haml, and that all your generated
 tests are specs. These generators are from the [ haml-rails
-](http://github.com/indirect/haml-rails) and [factory_girl_generator](http://github.com/leshill/factory_girl_generator) gems.
+](https://github.com/indirect/haml-rails) and [factory_girl_generator](https://github.com/leshill/factory_girl_generator) gems.
 
 JavaScript Includes
 -------------------
