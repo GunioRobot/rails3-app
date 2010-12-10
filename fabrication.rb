@@ -4,21 +4,16 @@ RVMRC
 
 create_file ".rvmrc", rvmrc
 
-gem "capybara", ">= 0.4.0", :group => [:cucumber, :test]
-gem "cucumber-rails", ">= 0.3.2", :group => [:cucumber, :test]
-gem "database_cleaner", ">= 0.5.2", :group => [:cucumber, :test]
-gem "factory_girl_rails", ">= 1.0.0", :group => [:cucumber, :test]
-gem "factory_girl_generator", ">= 0.0.1", :group => [:cucumber, :development, :test]
+gem "fabrication", ">= 0.9.4"
 gem "haml-rails", ">= 0.3.4"
-gem "launchy", ">= 0.3.7", :group => [:cucumber, :test]
-gem "rspec-rails", ">= 2.2.1", :group => [:cucumber, :development, :test]
-gem "spork", ">= 0.8.4", :group => [:cucumber, :test]
+gem "rspec-rails", ">= 2.2.1", :group => [:development, :test]
 
 generators = <<-GENERATORS
 
     config.generators do |g|
       g.test_framework :rspec, :fixture => true, :views => false
-      g.integration_tool :rspec
+      g.fixture_replacement :fabrication, :dir => "spec/fabricators"
+      g.integration_tool :rspec, :fixture => true, :views => true
     end
 GENERATORS
 
@@ -26,7 +21,7 @@ application generators
 
 get "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",  "public/javascripts/jquery.js"
 get "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js", "public/javascripts/jquery-ui.js"
-`curl https://github.com/rails/jquery-ujs/raw/master/src/rails.js -o public/javascripts/rails.js`
+`curl http://github.com/rails/jquery-ujs/raw/master/src/rails.js -o public/javascripts/rails.js`
 
 gsub_file 'config/application.rb', 'config.action_view.javascript_expansions[:defaults] = %w()', 'config.action_view.javascript_expansions[:defaults] = %w(jquery.js jquery-ui.js rails.js)'
 
@@ -60,7 +55,6 @@ Run the following commands to complete the setup of #{app_name.humanize}:
 % gem install bundler
 % bundle install
 % script/rails generate rspec:install
-% script/rails generate cucumber:install --rspec --capybara
 
 DOCS
 

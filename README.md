@@ -1,5 +1,13 @@
-Rails 3, RSpec, Factory Girl, Haml, and jQuery
-==============================================
+Rails 3, RSpec, Fabrication or Factory Girl, Haml, and jQuery
+=============================================================
+
+# Please note
+
+Thomas Maas points out that the recent switch by github to only support https
+has exposed a bug in Rails (see
+https://rails.lighthouseapp.com/projects/8994/tickets/5926).  In order to use
+these templates, you should clone the repo and refer to the templates from your
+local file system instead of their github uris as shown below.
 
 Easily generate a Rails 3 application with RSpec, Factory Girl, Haml, and
 jQuery in one line:
@@ -14,6 +22,16 @@ Use this generator file instead:
     % rails new my_app -J -T -m \
     https://github.com/leshill/rails3-app/raw/master/cuke.rb
 
+## Want Fabrication instead of Factory Girl?
+
+Use either of the following generators instead:
+
+    % rails new my_app -J -T -m \
+    http://github.com/leshill/rails3-app/raw/master/fabrication.rb
+
+    % rails new my_app -J -T -m \
+    http://github.com/leshill/rails3-app/raw/master/fabrication_cuke.rb
+
 rvm
 ---
 
@@ -22,11 +40,11 @@ We love `rvm`, so the application has an `.rvmrc` generated to specify a gemset.
 Generators
 ----------
 
-This also gives you the Factory Girl and Haml Rails 3 generators &mdash; the
-generators for RSpec are in the RSpec gem &mdash; so that your factories and
-views are generated using Factory Girl and Haml, and that all your generated
-tests are specs. These generators are from the [ haml-rails
-](https://github.com/indirect/haml-rails) and [factory_girl_generator](https://github.com/leshill/factory_girl_generator) gems.
+We use the Factory Girl and Haml Rails 3 generators &mdash; the generators for
+RSpec and Fabrication are packaged within their respective gems. The Factory Girl and Haml generators are from the
+[ haml-rails ](http://github.com/indirect/haml-rails) and
+[factory_girl_generator](http://github.com/leshill/factory_girl_generator)
+gems.
 
 JavaScript Includes
 -------------------
